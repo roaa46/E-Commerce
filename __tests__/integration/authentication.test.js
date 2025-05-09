@@ -73,3 +73,73 @@ describe('Authentication Routes', () => {
   });
 
 });
+
+describe('Authorization Routes', () => {
+
+  // اختبارات لحالة المستخدم العادي
+  it('should render user page for non-admin users', async () => {
+    const testEmail = `testuser${Date.now()}@example.com`;
+
+    // تسجيل المستخدم العادي
+    await request(app).post('/auth/register').send({
+      firstName: "Test",
+      lastName: "User",
+      mobile: "0123456789",
+      gender: "female",
+      username: "testuser",
+      email: testEmail,
+      password: "123456",
+      confirmPassword: "123456",
+      isAdmin: false,
+      isTest: true,
+    });
+
+    // تسجيل الدخول للمستخدم العادي
+    const resLogin = await request(app).post('/auth/login').send({
+      email: testEmail,
+      password: '123456',
+    });
+
+    // اختبار أن الجلسة تحتوي على المستخدم العادي
+    const res = await request(app)
+      .get('/user')  // المسار الذي يوجه المستخدم العادي إليه
+      .set('Cookie', resLogin.headers['set-cookie']);  // ارسال الكوكيز الخاصة بالجلسة
+
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('Our Products');  // تأكد من أن الصفحة تحتوي على نص معين
+  });
+
+  // اختبارات لحالة المستخدم admin
+  it('should render admin page for admin users', async () => {
+    const testEmail = `adminuser${Date.now()}@example.com`;
+
+    // تسجيل المستخدم admin
+    await request(app).post('/auth/register').send({
+      firstName: "Admin",
+      lastName: "User",
+      mobile: "0123456789",
+      gender: "female",
+      username: "adminuser",
+      email: testEmail,
+      password: "123456",
+      confirmPassword: "123456",
+      isAdmin: true,
+      isTest: true,
+    });
+
+    // تسجيل الدخول للمستخدم admin
+    const resLogin = await request(app).post('/auth/login').send({
+      email: testEmail,
+      password: '123456',
+    });
+
+    // اختبار أن الجلسة تحتوي على المستخدم admin
+    const res = await request(app)
+      .get('/admin')  // المسار الذي يوجه المستخدم admin إليه
+      .set('Cookie', resLogin.headers['set-cookie']);  // ارسال الكوكيز الخاصة بالجلسة
+
+    expect(res.status).toBe(200);
+    expect(res.text).toContain('Admin Dashboard');  // تأكد من أن الصفحة تحتوي على نص معين
+  });
+
+});

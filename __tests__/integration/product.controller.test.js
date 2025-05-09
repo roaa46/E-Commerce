@@ -116,3 +116,76 @@ describe('Product Routes - Integration Tests', () => {
 
   
 });
+
+  it('should apply a discount to a product (POST /admin/apply-discount/:id)', async () => {
+    const product = await Products.create({
+      title: 'Discounted Product',
+      description: 'desc',
+      category: 'cat',
+      price: 200,
+      image: 'image.jpg',
+      discount: 0,
+      isTest: true,
+    });
+
+    const res = await request(app)
+      .post(`/admin/apply-discount/${product._id}`)
+      .send({ discount: 20 });
+
+    expect(res.statusCode).toBe(302);
+    const updatedProduct = await Products.findById(product._id);
+    expect(updatedProduct.discount).toBe(20);
+  });
+
+  it('should remove discount from a product (POST /admin/remove-discount/:id)', async () => {
+    const product = await Products.create({
+      title: 'Product With Discount',
+      description: 'desc',
+      category: 'cat',
+      price: 100,
+      image: 'image.jpg',
+      discount: 15,
+      isTest: true,
+    });
+
+    const res = await request(app)
+      .post(`/admin/remove-discount/${product._id}`);
+
+    expect(res.statusCode).toBe(302);
+    const updatedProduct = await Products.findById(product._id);
+    expect(updatedProduct.discount).toBe(0);
+  });
+
+  it('should return 404 when applying discount to a non-existent product', async () => {
+    const nonExistentId = new mongoose.Types.ObjectId();
+    const res = await request(app)
+      .post(`/admin/apply-discount/${nonExistentId}`)
+      .send({ discount: 10 });
+
+    expect(res.statusCode).toBe(404);
+    expect(res.text).toBe('Product not found');
+  });
+
+  it('should return 404 when removing discount from a non-existent product', async () => {
+    const nonExistentId = new mongoose.Types.ObjectId();
+    const res = await request(app)
+      .post(`/admin/remove-discount/${nonExistentId}`);
+
+    expect(res.statusCode).toBe(404);
+    expect(res.text).toBe('Product not found');
+  });
+  it('should return 404 when trying to edit a non-existent product', async () => {
+    const nonExistentId = new mongoose.Types.ObjectId();
+    const res = await request(app).get(`/admin/edit/${nonExistentId}`);
+    expect(res.statusCode).toBe(404);
+    expect(res.text).toBe('Product not found');
+  }); 
+  it('should return 404 when trying to delete a non-existent product', async () => {
+    const nonExistentId = new mongoose.Types.ObjectId();
+    const res = await request(app).post(`/admin/products/delete/${nonExistentId}`);
+    expect(res.statusCode).toBe(404);
+    expect(res.text).toBe('Product not found');
+  }); 
+
+
+  
