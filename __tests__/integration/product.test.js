@@ -7,10 +7,12 @@ require('dotenv').config();
 
 beforeEach(async () => {
   await mongoose.connect(process.env.MONGODB_URI);
+  await productModel.deleteMany({ isTest: true });
 });
 
 afterAll(async () => {
-  await productModel.deleteMany({ isTest: true });
+  await productModel.deleteMany({ isTest: true, title: /Test Product/i });
+
   await mongoose.connection.close();
 });
 
@@ -30,6 +32,15 @@ describe("Product Integration Tests", () => {
   });
 
   it("should get list of products for user", async () => {
+    await productModel.create({
+      title: 'Test Product',
+      image: 'uploads/test.jpg',
+      category: 'Test Product',
+      price: 99,
+      description: 'A product for testing',
+      isTest: true
+    });
+
     const res = await request(app).get("/user");
     expect(res.statusCode).toBe(200);
     expect(res.text).toContain("Test Product"); 

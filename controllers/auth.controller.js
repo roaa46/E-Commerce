@@ -47,7 +47,7 @@ const register = async (req, res) => {
         password: hashedPassword,
         confirmPassword: hashedPassword,
         isAdmin: isAdmin === 'true',
-        isTest: isTest === 'true' || false, 
+        isTest: isTest === true
       });
     
     

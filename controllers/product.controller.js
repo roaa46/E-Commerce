@@ -73,6 +73,7 @@ const createProduct = async (req, res) => {
             price: req.body.price,
             image: req.body.image,
             discount: req.body.discount || 0,
+            isTest: req.body.isTest === 'true' || req.body.isTest === true
         });
 
         await newProduct.save();
