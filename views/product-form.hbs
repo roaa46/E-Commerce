@@ -8,7 +8,16 @@
 <body>
   <div class="container mt-5">
     <h2 class="mb-4 text-center">{{#if isEdit}}Update Product{{else}}Add New Product{{/if}}</h2>
-
+    {{#if errors}}
+      <div class="alert alert-danger" role="alert">
+        Please fix the following errors:
+        <ul>
+          {{#each errors}}
+            <li>{{this.msg}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    {{/if}}
     <form method="POST" action="{{#if isEdit}}/admin/products/{{product._id}}/update{{else}}/admin/products{{/if}}">
       <div class="mb-3">
         <label for="title" class="form-label">Product Title</label>
@@ -27,7 +36,8 @@
 
       <div class="mb-3">
         <label for="price" class="form-label">Price (EGP)</label>
-        <input type="number" class="form-control" id="price" name="price" value="{{product.price}}" required>
+       <input type="number" step="any" class="form-control" id="price" name="price" value="{{product.price}}" required>
+
       </div>
 
       <div class="mb-3">
@@ -47,4 +57,6 @@
     </form>
   </div>
 </body>
-</html>
+</html> 
+
+ 

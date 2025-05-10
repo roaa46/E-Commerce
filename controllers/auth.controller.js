@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const Users = require('../models/user');
 
 
@@ -18,14 +18,13 @@ const register = async (req, res) => {
         isTest,
     } = req.body;
 
-    if (!firstName || !lastName || !mobile || !gender || !username || !email || !password ) {
+    if (!firstName || !lastName || !mobile || !gender || !username || !email || !password) {
         return res.status(400).json({
             status: "failure",
             message: "Missing required fields",
         });
     }
 
-   
     const existingUser = await Users.findOne({ email: email });
     if (existingUser) {
         return res.status(400).json({
@@ -34,7 +33,6 @@ const register = async (req, res) => {
         });
     }
 
-  
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const newUser = await Users.create({
@@ -45,26 +43,24 @@ const register = async (req, res) => {
         username,
         email,
         password: hashedPassword,
-        confirmPassword: hashedPassword,
         isAdmin: isAdmin === 'true',
         isTest: isTest === true
-      });
-    
-    
+    });
+
     req.session.user = newUser;
 
-    if (newUser.isAdmin === 'true' || newUser.isAdmin === true) {
+    if (newUser.isAdmin) {
         res.redirect("/admin");
-
     } else {
         res.redirect("/user");
-
     }
 };
+
 
 const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await Users.findOne({ email: email });
+    console.log(req.body);
 
     if (!user) {
         return res.status(400).json({
@@ -92,16 +88,19 @@ const login = async (req, res) => {
 
 
 const logout = async (req, res) => {
+    console.log("logout");
     req.session.destroy();
-    res.redirect("/login");
+    res.redirect("/auth/login");
 };
 const renderLogin = (req, res) => {
     res.render('login');
 };
 
 const renderSignup = (req, res) => {
+
     res.render('signup');
 };
+
 
 
 module.exports = {

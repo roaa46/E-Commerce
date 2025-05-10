@@ -7,33 +7,31 @@ const {
   renderSignup
 } = require('../controllers/auth.controller');
 
-
+const validateSignup = require('../middlewares/validators/signupValidator');
+const checkPasswordStrength = require('../middlewares/security/checkPasswordStrength');
+const isAdmin = require('../middlewares/auth/isAdmin');
+const isUser = require('../middlewares/auth/isUser');
+const validateLogin = require('../middlewares/validators/validateLogin');
 const router = express.Router();
 
-// Routes
+
+router.post('/login', validateLogin, login);
+
+
 router.get('/login', renderLogin);
 router.get('/signup', renderSignup);
-router.post('/register', register);
-router.post('/login', login);
+router.post('/register', validateSignup, checkPasswordStrength, register);
+router.post('/login',validateLogin, login);
 router.get('/logout', logout);
 
-router.get('/admin', (req, res) => {
-  
-    if (req.session.user && req.session.user.isAdmin) {
-      res.render('admin');
-    } else {
-      res.redirect('/auth/login');
-    }
+
+
+router.get('/admin', isAdmin, (req, res) => {
+  res.render('admin');
 });
 
-router.get('/user', (req, res) => {
-    if (req.session.user && !req.session.user.isAdmin) {
-      res.render('user');
-    } else {
-      res.redirect('/auth/login');
-    }
+router.get('/user', isUser, (req, res) => {
+  res.render('user');
 });
 
-  
-
-module.exports = router
+module.exports = router;

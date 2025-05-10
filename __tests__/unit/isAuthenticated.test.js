@@ -1,33 +1,53 @@
-const isAuthenticated = require('../../middlewares/isAuthenticated');
+// __tests__/middlewares/isAuthenticated.test.js
+const isAuthenticated = require("../../middlewares/auth/isAuthenticated");
 
-describe('isAuthenticated middleware', () => {
-  const mockReq = {};
-  const mockRes = {
-    redirect: jest.fn(),
-  };
-  const mockNext = jest.fn();
+describe("isAuthenticated Middleware", () => {
+  it("should call next() if user is logged in", () => {
+    const req = {
+      session: { user: { name: "test" } },
+      accepts: jest.fn()
+    };
+    const res = {};
+    const next = jest.fn();
 
-  beforeEach(() => {
-    // reset mocks before each test
-    mockRes.redirect.mockReset();
-    mockNext.mockReset();
+    isAuthenticated(req, res, next);
+
+    expect(next).toHaveBeenCalled();
   });
 
-  test('should call next() if user is authenticated', () => {
-    mockReq.session = { user: { name: 'Roaa' } };
+  it("should redirect to login if not logged in and request expects HTML", () => {
+    const req = {
+      session: {},
+      accepts: jest.fn(() => true)
+    };
+    const res = {
+      redirect: jest.fn()
+    };
+    const next = jest.fn();
 
-    isAuthenticated(mockReq, mockRes, mockNext);
+    isAuthenticated(req, res, next);
 
-    expect(mockNext).toHaveBeenCalled();
-    expect(mockRes.redirect).not.toHaveBeenCalled();
+    expect(req.accepts).toHaveBeenCalledWith("html");
+    expect(res.redirect).toHaveBeenCalledWith("/auth/login");
+    expect(next).not.toHaveBeenCalled();
   });
 
-  test('should redirect to login if user is not authenticated', () => {
-    mockReq.session = {}; // no user
+  it("should return 401 JSON if not logged in and request expects JSON", () => {
+    const req = {
+      session: {},
+      accepts: jest.fn(() => false)
+    };
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn()
+    };
+    const next = jest.fn();
 
-    isAuthenticated(mockReq, mockRes, mockNext);
+    isAuthenticated(req, res, next);
 
-    expect(mockRes.redirect).toHaveBeenCalledWith('/auth/login');
-    expect(mockNext).not.toHaveBeenCalled();
+    expect(req.accepts).toHaveBeenCalledWith("html");
+    expect(res.status).toHaveBeenCalledWith(401);
+    expect(res.json).toHaveBeenCalledWith({ message: "Unauthorized" });
+    expect(next).not.toHaveBeenCalled();
   });
 });

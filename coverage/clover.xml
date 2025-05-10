@@ -1,131 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1746811052793" clover="3.2.0">
-  <project timestamp="1746811052793" name="All files">
-    <metrics statements="186" coveredstatements="149" conditionals="51" coveredconditionals="33" methods="21" coveredmethods="16" elements="258" coveredelements="198" complexity="0" loc="186" ncloc="186" packages="6" files="11" classes="11"/>
-    <package name="to-do-listv2-main">
-      <metrics statements="25" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="app.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\app.js">
-        <metrics statements="25" coveredstatements="24" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="4" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="13" count="4" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="26" count="4" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="30" count="4" type="stmt"/>
-        <line num="31" count="4" type="stmt"/>
-        <line num="32" count="4" type="stmt"/>
-        <line num="33" count="4" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="42" count="4" type="stmt"/>
-        <line num="43" count="4" type="stmt"/>
-        <line num="46" count="4" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
+<coverage generated="1746890851953" clover="3.2.0">
+  <project timestamp="1746890851953" name="All files">
+    <metrics statements="253" coveredstatements="212" conditionals="67" coveredconditionals="50" methods="30" coveredmethods="23" elements="350" coveredelements="285" complexity="0" loc="253" ncloc="253" packages="8" files="17" classes="17"/>
+    <package name="product-managerv2-main">
+      <metrics statements="38" coveredstatements="36" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+      <file name="app.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\app.js">
+        <metrics statements="38" coveredstatements="36" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="13" type="stmt"/>
+        <line num="64" count="13" type="stmt"/>
+        <line num="65" count="13" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="75" count="2" type="stmt"/>
+        <line num="76" count="2" type="stmt"/>
+        <line num="77" count="2" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="85" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="to-do-listv2-main.controllers">
-      <metrics statements="107" coveredstatements="77" conditionals="39" coveredconditionals="29" methods="14" coveredmethods="12"/>
-      <file name="auth.controller.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\controllers\auth.controller.js">
-        <metrics statements="36" coveredstatements="34" conditionals="23" coveredconditionals="21" methods="5" coveredmethods="5"/>
-        <line num="1" count="7" type="stmt"/>
-        <line num="2" count="7" type="stmt"/>
-        <line num="6" count="7" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="19" count="6" type="stmt"/>
-        <line num="21" count="6" type="cond" truecount="9" falsecount="0"/>
-        <line num="22" count="1" type="stmt"/>
-        <line num="29" count="5" type="stmt"/>
-        <line num="30" count="5" type="cond" truecount="2" falsecount="0"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="38" count="4" type="stmt"/>
-        <line num="40" count="4" type="stmt"/>
-        <line num="54" count="4" type="stmt"/>
-        <line num="56" count="4" type="cond" truecount="3" falsecount="1"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="60" count="4" type="stmt"/>
-        <line num="65" count="7" type="stmt"/>
-        <line num="66" count="4" type="stmt"/>
-        <line num="67" count="4" type="stmt"/>
-        <line num="69" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="70" count="1" type="stmt"/>
-        <line num="76" count="3" type="stmt"/>
-        <line num="77" count="3" type="cond" truecount="2" falsecount="0"/>
-        <line num="78" count="1" type="stmt"/>
-        <line num="84" count="2" type="stmt"/>
-        <line num="86" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="87" count="0" type="stmt"/>
-        <line num="89" count="2" type="stmt"/>
-        <line num="94" count="7" type="stmt"/>
-        <line num="95" count="1" type="stmt"/>
-        <line num="96" count="1" type="stmt"/>
-        <line num="98" count="7" type="stmt"/>
-        <line num="99" count="1" type="stmt"/>
-        <line num="102" count="7" type="stmt"/>
-        <line num="103" count="1" type="stmt"/>
-        <line num="107" count="7" type="stmt"/>
-      </file>
-      <file name="product.controller.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\controllers\product.controller.js">
-        <metrics statements="71" coveredstatements="43" conditionals="16" coveredconditionals="8" methods="9" coveredmethods="7"/>
+    <package name="product-managerv2-main.controllers">
+      <metrics statements="109" coveredstatements="74" conditionals="37" coveredconditionals="24" methods="14" coveredmethods="11"/>
+      <file name="auth.controller.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\controllers\auth.controller.js">
+        <metrics statements="38" coveredstatements="34" conditionals="21" coveredconditionals="17" methods="5" coveredmethods="5"/>
         <line num="1" count="5" type="stmt"/>
-        <line num="4" count="5" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="6" count="3" type="stmt"/>
-        <line num="8" count="3" type="stmt"/>
-        <line num="9" count="3" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="22" count="5" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="26" count="2" type="stmt"/>
-        <line num="27" count="2" type="stmt"/>
-        <line num="28" count="2" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="42" count="5" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="21" count="5" type="cond" truecount="8" falsecount="1"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
+        <line num="29" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="36" count="5" type="stmt"/>
+        <line num="38" count="5" type="stmt"/>
         <line num="50" count="5" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="52" count="2" type="stmt"/>
-        <line num="53" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="55" count="1" type="stmt"/>
-        <line num="60" count="1" type="stmt"/>
-        <line num="65" count="5" type="stmt"/>
-        <line num="66" count="3" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
-        <line num="68" count="3" type="stmt"/>
-        <line num="79" count="3" type="stmt"/>
+        <line num="52" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="60" count="5" type="stmt"/>
+        <line num="61" count="5" type="stmt"/>
+        <line num="62" count="5" type="stmt"/>
+        <line num="63" count="5" type="stmt"/>
+        <line num="65" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="73" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="1" type="stmt"/>
         <line num="80" count="3" type="stmt"/>
+        <line num="82" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="83" count="0" type="stmt"/>
+        <line num="85" count="3" type="stmt"/>
+        <line num="90" count="5" type="stmt"/>
+        <line num="91" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+        <line num="95" count="5" type="stmt"/>
+        <line num="96" count="1" type="stmt"/>
+        <line num="99" count="5" type="stmt"/>
+        <line num="101" count="1" type="stmt"/>
+        <line num="106" count="5" type="stmt"/>
+      </file>
+      <file name="product.controller.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\controllers\product.controller.js">
+        <metrics statements="71" coveredstatements="40" conditionals="16" coveredconditionals="7" methods="9" coveredmethods="6"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+        <line num="67" count="1" type="stmt"/>
+        <line num="68" count="1" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
         <line num="82" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="88" count="5" type="stmt"/>
-        <line num="89" count="2" type="stmt"/>
-        <line num="90" count="2" type="stmt"/>
-        <line num="92" count="2" type="stmt"/>
-        <line num="106" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="88" count="3" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+        <line num="90" count="1" type="stmt"/>
+        <line num="92" count="1" type="stmt"/>
+        <line num="106" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="107" count="0" type="stmt"/>
-        <line num="110" count="2" type="stmt"/>
+        <line num="110" count="1" type="stmt"/>
         <line num="112" count="0" type="stmt"/>
         <line num="113" count="0" type="stmt"/>
-        <line num="118" count="5" type="stmt"/>
-        <line num="119" count="2" type="stmt"/>
-        <line num="120" count="2" type="stmt"/>
-        <line num="122" count="2" type="stmt"/>
-        <line num="123" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="118" count="3" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
+        <line num="120" count="1" type="stmt"/>
+        <line num="122" count="1" type="stmt"/>
+        <line num="123" count="1" type="cond" truecount="1" falsecount="1"/>
         <line num="124" count="0" type="stmt"/>
-        <line num="127" count="2" type="stmt"/>
+        <line num="127" count="1" type="stmt"/>
         <line num="129" count="0" type="stmt"/>
         <line num="130" count="0" type="stmt"/>
-        <line num="135" count="5" type="stmt"/>
+        <line num="135" count="3" type="stmt"/>
         <line num="136" count="0" type="stmt"/>
         <line num="137" count="0" type="stmt"/>
         <line num="139" count="0" type="stmt"/>
@@ -136,7 +151,7 @@
         <line num="146" count="0" type="stmt"/>
         <line num="148" count="0" type="stmt"/>
         <line num="149" count="0" type="stmt"/>
-        <line num="154" count="5" type="stmt"/>
+        <line num="154" count="3" type="stmt"/>
         <line num="155" count="0" type="stmt"/>
         <line num="157" count="0" type="stmt"/>
         <line num="158" count="0" type="stmt"/>
@@ -146,97 +161,173 @@
         <line num="164" count="0" type="stmt"/>
         <line num="166" count="0" type="stmt"/>
         <line num="167" count="0" type="stmt"/>
-        <line num="171" count="5" type="stmt"/>
+        <line num="171" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="to-do-listv2-main.helpers">
+    <package name="product-managerv2-main.helpers">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <file name="discount.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\helpers\discount.js">
+      <file name="discount.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\helpers\discount.js">
         <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="5" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="cond" truecount="2" falsecount="0"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="7" count="5" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="12" count="5" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
       </file>
-      <file name="productFormat.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\helpers\productFormat.js">
+      <file name="productFormat.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\helpers\productFormat.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="10" type="stmt"/>
-        <line num="2" count="5" type="stmt"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="to-do-listv2-main.middlewares">
-      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-      <file name="isAuthenticated.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\middlewares\isAuthenticated.js">
-        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
-        <line num="2" count="2" type="cond" truecount="2" falsecount="0"/>
+    <package name="product-managerv2-main.middlewares.auth">
+      <metrics statements="14" coveredstatements="14" conditionals="12" coveredconditionals="12" methods="3" coveredmethods="3"/>
+      <file name="isAdmin.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\middlewares\auth\isAdmin.js">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="2" count="4" type="cond" truecount="4" falsecount="0"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="9" count="5" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+      </file>
+      <file name="isAuthenticated.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\middlewares\auth\isAuthenticated.js">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="2" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="7" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+      </file>
+      <file name="isUser.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\middlewares\auth\isUser.js">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="2" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
       </file>
     </package>
-    <package name="to-do-listv2-main.models">
+    <package name="product-managerv2-main.middlewares.security">
+      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="checkPasswordStrength.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\middlewares\security\checkPasswordStrength.js">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="product-managerv2-main.middlewares.validators">
+      <metrics statements="28" coveredstatements="26" conditionals="12" coveredconditionals="9" methods="4" coveredmethods="4"/>
+      <file name="signupValidator.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\middlewares\validators\signupValidator.js">
+        <metrics statements="11" coveredstatements="10" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="20" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="8" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="38" count="6" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+      </file>
+      <file name="validateLogin.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\middlewares\validators\validateLogin.js">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+      </file>
+      <file name="validateProduct.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\middlewares\validators\validateProduct.js">
+        <metrics statements="10" coveredstatements="9" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="24" count="4" type="cond" truecount="1" falsecount="1"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="46" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="product-managerv2-main.models">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="product.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\models\product.js">
+      <file name="product.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\models\product.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="34" count="3" type="stmt"/>
+      </file>
+      <file name="user.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\models\user.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="5" type="stmt"/>
         <line num="3" count="5" type="stmt"/>
-        <line num="34" count="5" type="stmt"/>
-      </file>
-      <file name="user.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\models\user.js">
-        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="45" count="7" type="stmt"/>
+        <line num="45" count="5" type="stmt"/>
       </file>
     </package>
-    <package name="to-do-listv2-main.routes">
-      <metrics statements="34" coveredstatements="28" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="admin.route.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\routes\admin.route.js">
-        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="19" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="25" count="4" type="stmt"/>
-        <line num="27" count="4" type="stmt"/>
+    <package name="product-managerv2-main.routes">
+      <metrics statements="41" coveredstatements="39" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="admin.route.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\routes\admin.route.js">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
       </file>
-      <file name="auth.route.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\routes\auth.route.js">
-        <metrics statements="17" coveredstatements="11" conditionals="8" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="8" count="4" type="stmt"/>
-        <line num="11" count="4" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="17" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
-        <line num="20" count="4" type="stmt"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="29" count="4" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="39" count="4" type="stmt"/>
+      <file name="auth.route.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\routes\auth.route.js">
+        <metrics statements="19" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
       </file>
-      <file name="user.route.js" path="D:\Roaa\FCI\Third Year\New\SWE2\sections\to-do-listv2-main\routes\user.route.js">
-        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="4" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="6" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
-        <line num="12" count="4" type="stmt"/>
+      <file name="user.route.js" path="C:\Users\Softlaptop\Downloads\Compressed\product-managerv2-main\routes\user.route.js">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
       </file>
     </package>
   </project>
