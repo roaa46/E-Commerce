@@ -4,21 +4,17 @@ const request = require('supertest');
 const userModel = require('../../models/user');
 const productModel = require('../../models/product');
 require('dotenv').config();
-const { MongoMemoryServer } = require('mongodb-memory-server');
-
-let mongod;
 
 beforeAll(async () => {
-  mongod = await MongoMemoryServer.create();
-  const uri = mongod.getUri();
+  const uri = process.env.MONGODB_URI;
+  if (!uri) {
+    throw new Error('MONGODB_URI not set in environment variables');
+  }
   await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
   jest.setTimeout(10000);
 });
 
-beforeEach(async () => {
-  await userModel.deleteMany();
-  await productModel.deleteMany();
-});
+
 afterEach(async () => {
   await userModel.deleteMany({ isTest: true });
   await productModel.deleteMany({ isTest: true });
@@ -26,7 +22,6 @@ afterEach(async () => {
 
 afterAll(async () => {
   await mongoose.connection.close();
-  await mongod.stop();
 });
 
 describe('User Routes', () => {
@@ -40,13 +35,13 @@ describe('User Routes', () => {
         gender: 'female',
         username: 'loginuser',
         email: `login${Date.now()}@example.com`,
-        password: '123456',
-        confirmPassword: '123456',
+        password: 'root123!',
+        confirmPassword: 'root123!',
         isAdmin: false,
         isTest: true,
       });
 
-    expect(userRes.status).toBe(400);
+    expect(userRes.status).toBe(302); // ملاحظة: 400 معناها إن في فشل، هل ده متعمد؟
 
     await productModel.create({
       title: 'Test Product',

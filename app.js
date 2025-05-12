@@ -24,11 +24,6 @@ const hbs = exphbs.create({
   runtimeOptions: {
     allowProtoPropertiesByDefault: true,
     allowProtoMethodsByDefault: true,
-  },
-  helpers: {
-    eq: function (a, b) {
-      return a === b;
-    }
   }
 });
 

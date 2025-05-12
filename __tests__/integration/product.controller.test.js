@@ -14,24 +14,24 @@ let mongoServer;
 beforeAll(async () => {
   mongoServer = await MongoMemoryServer.create();
   const uri = mongoServer.getUri();
-  await mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-});
-
+  await mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+}, 15000);
 
 afterAll(async () => {
   await mongoose.disconnect();
   await mongoServer.stop();
-}, 15000);
-
-afterEach(async () => {
-  await Product.deleteMany({ isTest: true });
 });
 
 beforeEach(async () => {
   app = express();
   app.use(express.json());
-  app.set('view engine', 'ejs');
+  app.set('view engine', 'hbs');
   app.set('views', './views');
+
+  // Replace res.render to return JSON instead
   app.response.render = function (_, data) {
     this.json(data);
   };
@@ -60,7 +60,7 @@ beforeEach(async () => {
 });
 
 afterEach(async () => {
-  await Product.deleteMany({});
+  await Product.deleteMany({ isTest: true });
 });
 
 describe('Integration Test - Product Controller', () => {

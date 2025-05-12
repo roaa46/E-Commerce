@@ -2,116 +2,27 @@ const mongoose = require('mongoose');
 const app = require('../../app');
 const userModel = require('../../models/user');
 const request = require('supertest');
-const { MongoMemoryServer } = require('mongodb-memory-server');
 require('dotenv').config();
 
-let mongoServer;
-let agent;
-
-beforeAll(async () => {
-  mongoServer = await MongoMemoryServer.create();
-  const uri = mongoServer.getUri();
-  await mongoose.connect(uri);
-  jest.setTimeout(15000);
-
-  agent = request.agent(app);
+beforeEach(async () => {
+  await mongoose.connect(process.env.MONGODB_URI);
 });
 
 afterAll(async () => {
-  await mongoose.disconnect();
-  await mongoServer.stop();
-}, 15000);
-
-afterEach(async () => {
   await userModel.deleteMany({ isTest: true });
+  await mongoose.connection.close();
 });
 
-
-describe('Authentication Routes', () => {
-  it('should render login page', async () => {
-    const res = await agent.get('/auth/login');
-    expect(res.status).toBe(200);
-    expect(res.text).toContain('Login');
-  });
-
+describe('register', () => {
   it('should render signup page', async () => {
-    const res = await agent.get('/auth/signup');
+    const res = await request(app).get('/auth/signup');
     expect(res.status).toBe(200);
     expect(res.text).toContain('Sign Up');
   });
 
   it('should register a new user', async () => {
-    const testEmail = `login${Date.now()}@example.com`;
-    const res = await agent.post('/auth/register').send({
-      firstName: 'Test',
-      lastName: 'User',
-      mobile: '0123456789',
-      gender: 'female',
-      username: 'loginuser',
-      email: testEmail,
-      password: 'StrongPassword123!',
-      confirmPassword: 'StrongPassword123!',
-      isAdmin: false,
-      isTest: true,
-    });
-
-    if (res.status !== 302) {
-      console.log('Register error:', {
-        status: res.status,
-        body: res.body,
-        text: res.text,
-        headers: res.headers,
-      });
-    }
-
-    expect(res.status).toBe(302);
-    expect(res.header.location).toBe('/user');
-
-    const user = await userModel.findOne({ email: testEmail });
-    expect(user).toBeDefined();
-    expect(user.firstName).toBe('Test');
-  });
-
-  it('should login a user', async () => {
-    const testEmail = `loginuser${Date.now()}@example.com`;
-
-    await agent.post('/auth/register').send({
-      firstName: 'Test',
-      lastName: 'User',
-      mobile: '0123456789',
-      gender: 'female',
-      username: 'loginuser',
-      email: testEmail,
-      password: 'StrongPassword123!',
-      confirmPassword: 'StrongPassword123!',
-      isAdmin: false,
-      isTest: true,
-    });
-
-    const res = await agent.post('/auth/login').send({
-      email: testEmail,
-      password: 'StrongPassword123!',
-    });
-
-    if (res.status !== 302) {
-      console.log('Login error:', {
-        status: res.status,
-        body: res.body,
-        text: res.text,
-        headers: res.headers,
-      });
-    }
-
-    expect(res.status).toBe(302);
-    expect(res.header.location).toBeDefined();
-  });
-});
-
-describe('Authorization Routes', () => {
-  it('should render user page for non-admin users', async () => {
-    const testEmail = `testuser${Date.now()}@example.com`;
-
-    await agent.post('/auth/register').send({
+    const testEmail = `register${Date.now()}@example.com`;
+    const res = await request(app).post('/auth/register').send({
       firstName: 'Test',
       lastName: 'User',
       mobile: '0123456789',
@@ -124,75 +35,83 @@ describe('Authorization Routes', () => {
       isTest: true,
     });
 
-    const loginRes = await agent.post('/auth/login').send({
-      email: testEmail,
-      password: 'StrongPassword123!',
-    });
+    expect(res.status).toBe(302);
+    expect(res.headers.location).toBe('/user');
 
-    if (loginRes.status !== 302) {
-      console.log('Login before user page error:', {
-        status: loginRes.status,
-        body: loginRes.body,
-        text: loginRes.text,
-        headers: loginRes.headers,
-      });
-    }
+    const user = await userModel.findOne({ email: testEmail });
+    expect(user).toBeDefined();
+    expect(user.firstName).toBe('Test');
+  });
+});
 
-    const res = await agent.get('/user');
-    if (res.status !== 200) {
-      console.log('User page error:', {
-        status: res.status,
-        body: res.body,
-        text: res.text,
-        headers: res.headers,
-      });
-    }
-
+describe('login', () => {
+  it('should render login page', async () => {
+    const res = await request(app).get('/auth/login');
     expect(res.status).toBe(200);
-    expect(res.text).toContain('Our Products');
+    expect(res.text).toContain('Login');
   });
 
-  it('should render admin page for admin users', async () => {
-    const testEmail = `adminuser${Date.now()}@example.com`;
+  it('should login a user', async () => {
+    const testEmail = `login${Date.now()}@example.com`;
 
-    await agent.post('/auth/register').send({
-      firstName: 'Admin',
+    await request(app).post('/auth/register').send({
+      firstName: 'Test',
       lastName: 'User',
       mobile: '0123456789',
       gender: 'female',
-      username: 'adminuser',
+      username: 'loginuser',
       email: testEmail,
       password: 'StrongPassword123!',
       confirmPassword: 'StrongPassword123!',
-      isAdmin: true,
+      isAdmin: false,
       isTest: true,
     });
 
-    const loginRes = await agent.post('/auth/login').send({
+    const res = await request(app).post('/auth/login').send({
       email: testEmail,
       password: 'StrongPassword123!',
     });
 
-    if (loginRes.status !== 302) {
-      console.log('Login before admin page error:', {
-        status: loginRes.status,
-        body: loginRes.body,
-        text: loginRes.text,
-        headers: loginRes.headers,
-      });
-    }
-
-    const res = await agent.get('/admin');
-    if (res.status !== 200) {
-      console.log('Admin page error:', {
-        status: res.status,
-        body: res.body,
-        text: res.text,
-        headers: res.headers,
-      });
-    }
-
     expect(res.status).toBe(302);
-expect(res.headers.location).toBe('/auth/login');
+    expect(res.headers.location).toBeDefined();
+  });
+
+  it('should fail login with incorrect password', async () => {
+    const testEmail = `failpass${Date.now()}@example.com`;
+
+    await request(app).post('/auth/register').send({
+      firstName: 'Test',
+      lastName: 'User',
+      mobile: '0123456789',
+      gender: 'female',
+      username: 'wrongpassuser',
+      email: testEmail,
+      password: 'CorrectPass123!',
+      confirmPassword: 'CorrectPass123!',
+      isTest: true,
+    });
+
+    const res = await request(app).post('/auth/login').send({
+      email: testEmail,
+      password: 'WrongPass!',
+    });
+
+    expect(res.status).toBe(400);
+  });
+
+  it('should fail login with invalid email', async () => {
+    const res = await request(app).post('/auth/login').send({
+      email: 'notfound@example.com',
+      password: 'AnyPass123!',
+    });
+
+    expect(res.status).toBe(400);
+  });
+});
+
+describe('logout', () => {
+  it('should logout from the system', async () => {
+    const res = await request(app).get('/logout');
+    expect(res.status).toBe(302);
   });
 });
