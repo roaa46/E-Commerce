@@ -13,6 +13,7 @@ const getProducts = async (req, res) => {
             convertToUppercase
         }
     });
+    // res.status(200).json({products});
 };
 
 const getProductsForUser = async (req, res) => {

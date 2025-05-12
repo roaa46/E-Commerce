@@ -3,26 +3,19 @@ const mongoose = require('mongoose');
 const request = require('supertest');
 const Product = require('../../models/product');
 const controller = require('../../controllers/product.controller');
-const { MongoMemoryServer } = require('mongodb-memory-server');
 
 require('dotenv').config();
 
 let app;
 let productId;
-let mongoServer;
 
 beforeAll(async () => {
-  mongoServer = await MongoMemoryServer.create();
-  const uri = mongoServer.getUri();
-  await mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
-}, 15000);
+  await mongoose.connect(process.env.MONGODB_URI);
+});
 
 afterAll(async () => {
-  await mongoose.disconnect();
-  await mongoServer.stop();
+  await Product.deleteMany({ isTest: true });
+    await mongoose.connection.close();
 });
 
 beforeEach(async () => {
